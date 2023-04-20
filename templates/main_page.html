@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Calcular DV de NUP da UNILA</title>
+    </head>
+
+    <body>
+
+        <div>
+            <p>Esta página calcula os dígitos verificadores (DV com 2 dígitos) dos
+            Números Únicos de Protocolo (NUP) da Universidade Federal da Integração
+            Latino-Americana (UNILA) de acordo com as regras estabelecidas na
+            <a href="https://www.in.gov.br/web/dou/-/portaria-interministerial-n-11-de-25-de-novembro-de-2019-229645093">Portaria
+            Interministerial No. 11</a>, de 25 de novembro de 2019.</p>
+        </div>
+
+        <div>
+            <p>O NUP é composto por 4 campos: código da unidade, código sequencial, ano e dígitos verificadores.</p>
+            <p>O código da unidade tem 5 dígitos: 23422 é o da UNILA.</p>
+            <p>O código sequencial tem 6 dígitos, incluindo eventuais zeros à esquerda.</p>
+            <p>O ano tem 4 dígitos.</p>
+            <p>E o DV tem 2 dígitos.</p>
+        </div>
+
+        <div>
+            <p>O formato de um NUP da UNILA é, portanto: 23422.000000/0000-45</p>
+        </div>
+
+        <div>
+            <form action="." method="POST">
+                <p>23422 . <input name="seq" type="number" min="0" max="999999" size="6" autofocus /> / <input name="ano" type="number" min="0" max="9999" size="4" value="2023" /> - ??</p>
+                <p><input type="submit" value="Calcular DV"></p>
+            </form>
+        </div>
+
+    </body>
+</html>

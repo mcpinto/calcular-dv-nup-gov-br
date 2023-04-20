@@ -1,7 +1,7 @@
 
 # A very simple Flask Hello World app for you to get started with...
 
-from flask import Flask, request
+from flask import Flask, render_template, request
 from processing import getDV
 
 app = Flask(__name__)
@@ -39,10 +39,13 @@ def adder_page():
                 {errors}
                 <p>Complete o NUP que deseja saber o DV:</p>
                 <form method="post" action=".">
-                    <p>23422. <input name="seq" /> / <input name="ano" /> -??</p>
+                    <p>23422. <input name="seq" type="number" min="0" max="999999" size="6" autofocus /> / <input name="ano" type="number" min="0" max="9999" size="4" value="2023" /> -??</p>
                     <p><input type="submit" value="Calcular DV" /></p>
                 </form>
             </body>
         </html>
     '''.format(errors=errors)
 
+@app.route('/teste', methods=['GET', 'POST'])
+def index():
+    return render_template("main_page.html")
