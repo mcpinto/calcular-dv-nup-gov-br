@@ -1,36 +1,72 @@
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
         <title>Calcular DV de NUP da UNILA</title>
     </head>
 
     <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Calcular DV de NUP da UNILA</a>
+                </div>
+            </div>
+        </nav>
 
-        <div>
-            <p>Esta página calcula os dígitos verificadores (DV com 2 dígitos) dos
+        <div class="container">
+
+        <div class="row">
+            Esta página calcula os dígitos verificadores (DV com 2 dígitos) dos
             Números Únicos de Protocolo (NUP) da Universidade Federal da Integração
             Latino-Americana (UNILA) de acordo com as regras estabelecidas na
             <a href="https://www.in.gov.br/web/dou/-/portaria-interministerial-n-11-de-25-de-novembro-de-2019-229645093">Portaria
-            Interministerial No. 11</a>, de 25 de novembro de 2019.</p>
+            Interministerial No. 11</a>, de 25 de novembro de 2019.
+            <p>&nbsp;</p>
         </div>
 
-        <div>
-            <p>O NUP é composto por 4 campos: código da unidade, código sequencial, ano e dígitos verificadores.</p>
-            <p>O código da unidade tem 5 dígitos: 23422 é o da UNILA.</p>
-            <p>O código sequencial tem 6 dígitos, incluindo eventuais zeros à esquerda.</p>
-            <p>O ano tem 4 dígitos.</p>
-            <p>E o DV tem 2 dígitos.</p>
+        <div class="row">
+            O NUP é composto por 4 campos: código da unidade, código sequencial, ano e dígitos verificadores.
         </div>
 
-        <div>
-            <p>O formato de um NUP da UNILA é, portanto: 23422.000000/0000-45</p>
+        <div class="row">
+            O código da unidade tem 5 dígitos: 23422 é o da UNILA.
         </div>
 
-        <div>
+        <div class="row">
+            O código sequencial tem 6 dígitos, incluindo eventuais zeros à esquerda.
+        </div>
+
+        <div class="row">
+            O ano tem 4 dígitos.
+        </div>
+
+        <div class="row">
+            E o DV tem 2 dígitos.
+            <p>&nbsp;</p>
+        </div>
+
+        <div class="row">
+            O formato de um NUP da UNILA é, portanto: 23422.000000/0000-45
+            <p>&nbsp;</p>
+        </div>
+
+        <div class="row">
             <form action="." method="POST">
-                <p>23422 . <input name="seq" type="number" min="0" max="999999" size="6" autofocus /> / <input name="ano" type="number" min="0" max="9999" size="4" value="2023" /> - ??</p>
-                <p><input type="submit" value="Calcular DV"></p>
+                23422 . <input name="seq" type="number" min="0" max="999999" size="7" autofocus /> / <input name="ano" type="number" min="0" max="9999" size="5" value="2023" /> - ??
+                <input type="submit" class="btn btn-success" value="Calcular DV">
             </form>
         </div>
 
+    </div><!-- /.container -->
     </body>
 </html>
