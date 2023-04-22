@@ -1,7 +1,7 @@
 
 # A very simple Flask Hello World app for you to get started with...
 
-from flask import Flask, render_template, request
+from flask import Flask, redirect, render_template, request, url_for
 from processing import getDV
 
 app = Flask(__name__)
@@ -9,7 +9,7 @@ app.config['DEBUG'] = True
 
 @app.route('/', methods=['GET', 'POST'])
 def adder_page():
-    errors = ""
+    errors = ''
     if request.method == "POST":
         seq = None
         ano = None
@@ -22,7 +22,7 @@ def adder_page():
         except:
             errors += "<p>{!r} não é um ano válido.</p>\n".format(request.form["ano"])
 
-        if seq is not None and ano is not None and seq >=0 and ano > 0:
+        if seq is not None and ano is not None and seq >=0 and ano >= 0:
             dv = getDV(seq, ano)
             return '''
                 <html>
@@ -46,6 +46,34 @@ def adder_page():
         </html>
     '''.format(errors=errors)
 
+errors = []
+NUP = ['23422', '000000', '0000', '00']
+
+
 @app.route('/teste', methods=['GET', 'POST'])
 def index():
-    return render_template("main_page.html")
+    if request.method == "GET":
+        return render_template("main_page.html", errors=errors, NUP=NUP)
+    seq = None
+    ano = None
+    try:
+        seq = int(request.form["seq"])
+    except:
+        errors.append("<p>{!r} não é um código sequencial válido.</p>\n".format(request.form["seq"]))
+    try:
+        ano = int(request.form["ano"])
+    except:
+        errors.append("<p>{!r} não é um ano válido.</p>\n".format(request.form["ano"]))
+
+    if seq is not None and ano is not None:
+        if 0 <= seq <= 999999 and 0 <= ano <= 9999:
+            NUP[1] = '{:06d}'.format(seq)
+            NUP[2] = '{:04d}'.format(ano)
+            NUP[3] = '{:02d}'.format(getDV(seq, ano))
+        else:
+            if seq < 0 or seq > 999999:
+                errors.append("<p>{} não é um ano válido.</p>\n".format(seq))
+            if ano < 0 or ano > 9999:
+                errors.append("<p>{} não é um ano válido.</p>\n".format(ano))
+
+    return redirect(url_for('index'))

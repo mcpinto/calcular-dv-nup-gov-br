@@ -25,48 +25,62 @@
 
         <div class="container">
 
-        <div class="row">
-            Esta página calcula os dígitos verificadores (DV com 2 dígitos) dos
-            Números Únicos de Protocolo (NUP) da Universidade Federal da Integração
-            Latino-Americana (UNILA) de acordo com as regras estabelecidas na
-            <a href="https://www.in.gov.br/web/dou/-/portaria-interministerial-n-11-de-25-de-novembro-de-2019-229645093">Portaria
-            Interministerial No. 11</a>, de 25 de novembro de 2019.
-            <p>&nbsp;</p>
-        </div>
+            <div class="row">
+                Esta página calcula os dígitos verificadores (DV com 2 dígitos) dos Números Únicos de Protocolo (NUP) da
+                Universidade Federal da Integração Latino-Americana (UNILA) de acordo com as regras estabelecidas na
+                <a href="https://www.in.gov.br/web/dou/-/portaria-interministerial-n-11-de-25-de-novembro-de-2019-229645093">Portaria
+                Interministerial No. 11</a>, de 25 de novembro de 2019.
+                <p>&nbsp;</p>
+            </div>
 
-        <div class="row">
-            O NUP é composto por 4 campos: código da unidade, código sequencial, ano e dígitos verificadores.
-        </div>
+            <div class="row">
+                O NUP é composto por 4 campos: código da unidade, código sequencial, ano e dígitos verificadores.
+            </div>
 
-        <div class="row">
-            O código da unidade tem 5 dígitos: 23422 é o da UNILA.
-        </div>
+            <div class="row">
+                O código da unidade tem 5 dígitos: 23422 é o da UNILA.
+            </div>
 
-        <div class="row">
-            O código sequencial tem 6 dígitos, incluindo eventuais zeros à esquerda.
-        </div>
+            <div class="row">
+                O código sequencial tem 6 dígitos, incluindo eventuais zeros à esquerda.
+            </div>
 
-        <div class="row">
-            O ano tem 4 dígitos.
-        </div>
+            <div class="row">
+                O ano tem 4 dígitos.
+            </div>
 
-        <div class="row">
-            E o DV tem 2 dígitos.
-            <p>&nbsp;</p>
-        </div>
+            <div class="row">
+                E o DV tem 2 dígitos.
+                <p>&nbsp;</p>
+            </div>
 
-        <div class="row">
-            O formato de um NUP da UNILA é, portanto: 23422.000000/0000-45
-            <p>&nbsp;</p>
-        </div>
+            <div class="row">
+                O formato de um NUP da UNILA é, portanto: 23422.000000/0000-45
+                <p>&nbsp;</p>
+            </div>
 
-        <div class="row">
-            <form action="." method="POST">
-                23422 . <input name="seq" type="number" min="0" max="999999" size="7" autofocus /> / <input name="ano" type="number" min="0" max="9999" size="5" value="2023" /> - ??
-                <input type="submit" class="btn btn-success" value="Calcular DV">
-            </form>
-        </div>
+            <div class="row">
+                <form action="./teste" method="POST">
+                    23422 .
+                    <input name="seq" type="number" min="0" max="999999" size="7" autofocus /> /
+                    <input name="ano" type="number" min="0" max="9999" size="5" value="2023" /> -
+                    ??
+                    <input type="submit" class="btn btn-success" value="Calcular DV">
+                </form>
+            </div>
 
-    </div><!-- /.container -->
+            {% if NUP[3] != '00' %}
+                <div class="row">
+                    O NUP com DV é {{ NUP[0] }}.{{ NUP[1] }}/{{ NUP[2] }}-{{ NUP[3] }}
+                </div>
+            {% endif %}
+
+            {% for error in errors %}
+                <div class="row">
+                    {{ error }}
+                </div>
+            {% endfor %}
+
+        </div><!-- /.container -->
     </body>
 </html>
