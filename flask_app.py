@@ -59,7 +59,11 @@ NUP = ['00000', '000000', '0000', '00']
 @app.route('/teste', methods=['GET', 'POST'])
 def index():
     if request.method == "GET":
-        return render_template("main_page.html", errors=errors, NUP=NUP)
+        tmp1 = errors.copy()
+        tmp2 = NUP.copy()
+        errors.clear()
+        NUP[3] = '00'
+        return render_template("main_page.html", errors=tmp1, NUP=tmp2)
     errors.clear()
     NUP[3] = '00'
     uni = None

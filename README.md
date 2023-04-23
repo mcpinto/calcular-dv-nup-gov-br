@@ -1,8 +1,10 @@
 # Calcular DV de NUP
 
-Fiz este código/página que calcula os 2 dígitos verificadores (DV) dos Números Únicos de Protocolo (NUP) do Governo Federal de acordo com as regras estabelecidas na [Portaria Interministerial No. 11](https://www.in.gov.br/web/dou/-/portaria-interministerial-n-11-de-25-de-novembro-de-2019-229645093), de 25 de novembro de 2019.
+Fiz este código/página que calcula os 2 dígitos verificadores (DV) dos Números Únicos de Protocolo (NUP) da Administração Pública federal de acordo com as regras estabelecidas na [Portaria Interministerial No. 11](https://www.in.gov.br/web/dou/-/portaria-interministerial-n-11-de-25-de-novembro-de-2019-229645093), de 25 de novembro de 2019.
 
-Ele está rodando no [PythonAnywhere](https://www.pythonanywhere.com/). para os NUP da Universidade Federal da Integração Latino-Americana ([UNILA](https://portal.unila.edu.br/)) [aqui](https://mcpinto.pythonanywhere.com/teste) (ou estava rodando, agora já não sei). O código é em Python 3.10 e a integração com o HTML é feita usando Flask 2.1.
+Ele está rodando no [PythonAnywhere](https://www.pythonanywhere.com/) para quaisquer NUP [aqui](https://mcpinto.pythonanywhere.com/teste) (ou estava rodando, agora já não sei). O código é em Python 3.10 e a integração com o HTML é feita usando Flask 2.1.
+
+Eu tinha feito ele para rodar somente para os NUP da Universidade Federal da Integração Latino-Americana ([UNILA](https://portal.unila.edu.br/)), mas acabou ficando fácil generalizar, então está aí essa versão "expandida".
 
 
 ## Arquivos
@@ -11,11 +13,11 @@ Ele está rodando no [PythonAnywhere](https://www.pythonanywhere.com/). para os 
 
 É onde está o código propriamente dito (e a parte que deu menos trabalho).
 
-É composto apenas por uma função **`getDV()`**, que faz os cálculos conforme a Portaria 11/2019 indica.
+É composto apenas por uma função `getDV()`, que faz os cálculos conforme a Portaria 11/2019 indica.
 
 ### `flask_app.py`
 
-É a parte que recebe os parâmetros do formulário HTML, os repassa para **`getDV()`** e, depois, devolve o DV calculado para o HTML exibir.
+É a parte que recebe os parâmetros do formulário HTML, os repassa para `getDV()` e, depois, devolve o DV calculado para o HTML exibir.
 
 Totalmente "inspirado" [daqui](https://blog.pythonanywhere.com/169/).
 
