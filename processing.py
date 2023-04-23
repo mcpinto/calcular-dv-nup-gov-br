@@ -1,5 +1,5 @@
-def getDV(seq, ano):
-  NUPunidade = [2, 3, 4, 2, 2] # código da UNILA como vetor (5 dígitos)
+def getDV(uni, seq, ano):
+  NUPunidade = [int(d) for d in '{:05d}'.format(uni)] # código da unidade como vetor (5 dígitos)
   NUPsequencial = [int(d) for d in '{:06d}'.format(seq)] # sequencial do protocolo como vetor (6 dígitos)
   NUPano = [int(d) for d in '{:04d}'.format(ano)] # ano do protocolo como vetor (4 dígitos)
   NUPV = list(reversed(NUPano)) + list(reversed(NUPsequencial)) + list(reversed(NUPunidade)) # vetor com dígitos invertidos
